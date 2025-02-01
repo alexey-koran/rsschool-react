@@ -63,7 +63,7 @@ Non-successful response.
 
 1. Create a separate branch for this task. Branch name: "class-components".
 
-2. Follow the requirements for the project setup listed [here](./project-setup.md)
+2. Follow the requirements for the project setup listed [here](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/tasks/project-setup.md)
 
 3. Pick a RESTfull api which supports search and pagination (pagination might be referred as _offset_ and _limit_ params). E.g. https://pokeapi.co/, for Star Wars fans https://swapi.dev/api, for Star Trek fans https://stapi.co/api-documentation (OpenApi spec can be checked here https://editor.swagger.io/?url=https://stapi.co/api/v1/rest/common/download/stapi.yaml), or you can select another one complying with the requirements.
 
