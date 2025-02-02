@@ -30,14 +30,14 @@ export class Results extends Component<Props> {
     ) : (
       <div className="results-section">
         <div className="results">
-          {results.length > 0 ? (
+          {results.length === 0 && !loading ? (
+            <div className="empty-message">No results.</div>
+          ) : (
             <Table<Planet>
               columns={columns}
               data={results}
               isLoading={loading}
             />
-          ) : (
-            <div className="empty-message">No results.</div>
           )}
         </div>
       </div>
