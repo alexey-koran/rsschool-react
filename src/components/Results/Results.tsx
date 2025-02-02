@@ -6,6 +6,8 @@ import { Table } from '../Table';
 
 interface Props {
   results: Planet[];
+  loading: boolean;
+  error: Error | null;
 }
 
 const columns: (keyof Planet)[] = [
@@ -19,15 +21,21 @@ const columns: (keyof Planet)[] = [
 
 export class Results extends Component<Props> {
   render() {
-    const { results } = this.props;
+    const { results, loading, error } = this.props;
 
     return (
-      <div className="results">
-        {results.length > 0 ? (
-          <Table<Planet> columns={columns} data={results} />
-        ) : (
-          <div>No results.</div>
-        )}
+      <div className="results-section">
+        {loading && <div>Loading...</div>}
+
+        {error && <div>{error.message}</div>}
+
+        <div className="results">
+          {results.length > 0 ? (
+            <Table<Planet> columns={columns} data={results} />
+          ) : (
+            <div>No results.</div>
+          )}
+        </div>
       </div>
     );
   }

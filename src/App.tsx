@@ -56,13 +56,7 @@ export class App extends Component<object, State> {
           setError={this.setError}
         />
 
-        <div className="results-section">
-          {loading && <div>Loading...</div>}
-
-          {error && <div>{error.message}</div>}
-
-          <Results results={results} />
-        </div>
+        <Results results={results} loading={loading} error={error} />
       </div>
     );
   }
