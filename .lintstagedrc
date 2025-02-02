@@ -1,0 +1,3 @@
+{
+  "*.{ts,tsx}": ["pnpm lint:fix-staged", "pnpm format:fix-staged"]
+}
