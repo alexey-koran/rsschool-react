@@ -8,6 +8,8 @@ import { Button } from '../Button';
 import { handleFetch } from '../../utils/fetch';
 import { API_URL } from '../../constants';
 
+import './Search.css';
+
 interface Props {
   query: string;
   setSearchResults: (results: Planet[]) => void;
