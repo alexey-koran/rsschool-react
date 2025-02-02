@@ -1,11 +1,11 @@
 import { Component } from 'react';
 
-interface TableProps<T> {
-  columns: string[];
+interface TableProps<T extends Record<keyof T, unknown>> {
+  columns: (keyof T)[];
   data: T[];
 }
 
-export class Table<T extends Record<string, string>> extends Component<
+export class Table<T extends Record<keyof T, unknown>> extends Component<
   TableProps<T>
 > {
   render() {
@@ -16,8 +16,8 @@ export class Table<T extends Record<string, string>> extends Component<
         <table>
           <thead>
             <tr>
-              {columns.map((column, index) => (
-                <th key={index}>{column}</th>
+              {columns.map((column) => (
+                <th key={String(column)}>{String(column)}</th>
               ))}
             </tr>
           </thead>
@@ -25,8 +25,8 @@ export class Table<T extends Record<string, string>> extends Component<
           <tbody>
             {data.map((row, rowIndex) => (
               <tr key={rowIndex}>
-                {columns.map((column, colIndex) => (
-                  <td key={colIndex}>{row[column]}</td>
+                {columns.map((column) => (
+                  <td key={String(column)}>{String(row[column])}</td>
                 ))}
               </tr>
             ))}
