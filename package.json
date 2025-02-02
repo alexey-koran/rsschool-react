@@ -25,8 +25,10 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:fix-staged": "eslint --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
+    "format:fix-staged": "prettier --write",
     "fix-staged": "lint-staged",
     "prepare": "husky"
   },
