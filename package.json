@@ -1,0 +1,25 @@
+{
+  "name": "class-components",
+  "version": "0.0.1",
+  "description": "React project setup. Class components. Error boundary.",
+  "main": "./src/index.mts",
+  "type": "module",
+  "author": "Alexey-Koran <alexey.koran@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexey-koran/rsschool-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexey-koran/rsschool-react.git"
+  },
+  "keywords": [
+    "rsschool",
+    "react",
+    "typescript",
+    "rest-api"
+  ],
+  "homepage": "https://github.com/alexey-koran/rsschool-react#readme",
+  "scripts": {
+  }
+}
