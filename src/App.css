@@ -1,9 +1,13 @@
 #root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
