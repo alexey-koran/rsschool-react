@@ -5,6 +5,7 @@ import './Input.css';
 interface Props {
   value: string;
   placeholder: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface State {
@@ -12,18 +13,6 @@ interface State {
 }
 
 export class Input extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      value: props.value,
-    };
-  }
-
-  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: e.target.value });
-  };
-
   componentDidUpdate(prevProps: Props) {
     if (prevProps.value !== this.props.value) {
       this.setState({ value: this.props.value });
@@ -31,12 +20,14 @@ export class Input extends Component<Props, State> {
   }
 
   render() {
+    const { value, onChange } = this.props;
+
     return (
       <input
         className="input"
         type="text"
-        value={this.state.value}
-        onChange={this.handleChange}
+        value={value}
+        onChange={onChange}
         placeholder={this.props.placeholder}
       />
     );

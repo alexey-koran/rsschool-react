@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ChangeEvent } from 'react';
 
 import type { Planet } from '../../types/Planet';
 
@@ -12,6 +12,7 @@ import './Search.css';
 
 interface Props {
   query: string;
+  setQuery: (query: string) => void;
   setSearchResults: (results: Planet[]) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: Error | null) => void;
@@ -47,12 +48,22 @@ export class Search extends Component<Props> {
     }
   };
 
+  handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { setQuery } = this.props;
+
+    setQuery(e.target.value);
+  };
+
   render() {
     const { query } = this.props;
 
     return (
       <div className="search-section">
-        <Input value={query} placeholder="Enter search query" />
+        <Input
+          value={query}
+          onChange={this.handleInputChange}
+          placeholder="Enter search query"
+        />
 
         <Button onClick={this.handleSearch}>Search</Button>
       </div>

@@ -32,6 +32,10 @@ export class App extends Component<object, State> {
     this.setState({ query: savedQuery });
   }
 
+  setQuery = (query: string) => {
+    this.setState({ query });
+  };
+
   setSearchResults = (results: Planet[]) => {
     this.setState({ results });
   };
@@ -51,6 +55,7 @@ export class App extends Component<object, State> {
       <div className="app">
         <Search
           query={query}
+          setQuery={this.setQuery}
           setSearchResults={this.setSearchResults}
           setLoading={this.setLoading}
           setError={this.setError}
