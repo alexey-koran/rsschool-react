@@ -1,5 +1,7 @@
 import { Component } from 'react';
 
+import './Table.css';
+
 interface TableProps<T extends Record<keyof T, unknown>> {
   columns: (keyof T)[];
   data: T[];
@@ -17,7 +19,7 @@ export class Table<T extends Record<keyof T, unknown>> extends Component<
           <thead>
             <tr>
               {columns.map((column) => (
-                <th key={String(column)}>{String(column)}</th>
+                <th key={String(column)}>{String(column).toUpperCase()}</th>
               ))}
             </tr>
           </thead>
