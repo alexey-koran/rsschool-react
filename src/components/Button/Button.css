@@ -1,5 +1,4 @@
 .button {
-  background-color: #4caf50;
   color: #ffffff;
   padding: 1rem 4rem;
   margin: 0 1rem;
@@ -13,13 +12,35 @@
 }
 
 .button:hover {
-  background-color: #45a049;
   transform: scale(1.05);
 }
 
 .button:active {
-  background-color: #388e3c;
   transform: scale(0.98);
+}
+
+.button-green {
+  background-color: #4caf50;
+}
+
+.button-green:hover {
+  background-color: #45a049;
+}
+
+.button-green:active {
+  background-color: #388e3c;
+}
+
+.button-blue {
+  background-color: #2196f3;
+}
+
+.button-blue:hover {
+  background-color: #1976d2;
+}
+
+.button-blue:active {
+  background-color: #1565c0;
 }
 
 .button:disabled {
