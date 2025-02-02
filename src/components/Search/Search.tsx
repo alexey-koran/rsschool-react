@@ -24,9 +24,7 @@ export class Search extends Component<Props> {
 
     const trimmedQuery = query.trim();
 
-    if (trimmedQuery) {
-      localStorage.setItem('searchQuery', trimmedQuery);
-    }
+    localStorage.setItem('searchQuery', trimmedQuery);
 
     setLoading(true);
     setError(null);
