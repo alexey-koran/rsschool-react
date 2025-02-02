@@ -1,5 +1,7 @@
 import { Component, type ChangeEvent } from 'react';
 
+import './Input.css';
+
 interface Props {
   value: string;
   placeholder: string;
@@ -31,6 +33,7 @@ export class Input extends Component<Props, State> {
   render() {
     return (
       <input
+        className="input"
         type="text"
         value={this.state.value}
         onChange={this.handleChange}
