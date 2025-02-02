@@ -4,6 +4,8 @@ import type { Planet } from '../../types/Planet';
 
 import { Table } from '../Table';
 
+import './Results.css';
+
 interface Props {
   results: Planet[];
   loading: boolean;
@@ -23,17 +25,19 @@ export class Results extends Component<Props> {
   render() {
     const { results, loading, error } = this.props;
 
-    return (
+    return error !== null ? (
+      <div className="error-message">{error.message}</div>
+    ) : (
       <div className="results-section">
-        {loading && <div>Loading...</div>}
-
-        {error && <div>{error.message}</div>}
-
         <div className="results">
           {results.length > 0 ? (
-            <Table<Planet> columns={columns} data={results} />
+            <Table<Planet>
+              columns={columns}
+              data={results}
+              isLoading={loading}
+            />
           ) : (
-            <div>No results.</div>
+            <div className="empty-message">No results.</div>
           )}
         </div>
       </div>

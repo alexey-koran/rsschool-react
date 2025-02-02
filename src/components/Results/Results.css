@@ -1,0 +1,26 @@
+.results-section {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.empty-message {
+  background-color: #2d2d2d;
+  color: #9e9e9e;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
