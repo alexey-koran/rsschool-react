@@ -30,7 +30,7 @@ export class Search extends Component<Props> {
 
     try {
       const { results } = await handleFetch<Planet>(
-        `${API_URL}${trimmedQuery}`
+        `${API_URL}?search=${trimmedQuery}`
       );
 
       setSearchResults(results || []);
