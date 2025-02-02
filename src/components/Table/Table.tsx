@@ -21,7 +21,7 @@ export class Table<T extends Record<keyof T, unknown>> extends Component<
             <thead>
               <tr>
                 {columns.map((column, index) => (
-                  <th key={index}>{String(column)}</th>
+                  <th key={index}>{String(column).toUpperCase()}</th>
                 ))}
               </tr>
             </thead>
