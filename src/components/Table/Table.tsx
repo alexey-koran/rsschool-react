@@ -30,7 +30,7 @@ export class Table<T extends Record<keyof T, unknown>> extends Component<
               {Array(5)
                 .fill(0)
                 .map((_, index) => (
-                  <tr key={index} className="shimmer-row">
+                  <tr key={index}>
                     {columns.map((_, colIndex) => (
                       <td key={colIndex}>
                         <div className="skeleton-cell"></div>
