@@ -11,16 +11,34 @@ import { API_URL } from '../../constants';
 import './Search.css';
 
 interface Props {
-  query: string;
-  setQuery: (query: string) => void;
   setSearchResults: (results: Planet[]) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: Error | null) => void;
 }
 
-export class Search extends Component<Props> {
-  handleSearch = async () => {
-    const { query, setSearchResults, setLoading, setError } = this.props;
+interface State {
+  query: string;
+}
+
+export class Search extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      query: '',
+    };
+  }
+
+  componentDidMount() {
+    const savedQuery = localStorage.getItem('searchQuery') ?? '';
+
+    this.setState({ query: savedQuery });
+
+    this.handleSearch(savedQuery);
+  }
+
+  handleSearch = async (query: string) => {
+    const { setSearchResults, setLoading, setError } = this.props;
 
     const trimmedQuery = query.trim();
 
@@ -46,14 +64,30 @@ export class Search extends Component<Props> {
     }
   };
 
-  handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { setQuery } = this.props;
+  handleNetworkError = async () => {
+    const { setSearchResults, setLoading, setError } = this.props;
 
-    setQuery(e.target.value);
+    try {
+      const { results } = await handleFetch<Planet>(`${API_URL}/schema`);
+
+      setSearchResults(results || []);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
+      } else {
+        setError(new Error('An unknown error occurred!'));
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    this.setState({ query: e.target.value });
   };
 
   render() {
-    const { query } = this.props;
+    const { query } = this.state;
 
     return (
       <div className="search-section">
@@ -63,7 +97,13 @@ export class Search extends Component<Props> {
           placeholder="Enter search query"
         />
 
-        <Button onClick={this.handleSearch}>Search</Button>
+        <Button onClick={() => this.handleSearch(this.state.query)}>
+          Search
+        </Button>
+
+        <Button theme="blue" onClick={this.handleNetworkError}>
+          Network Error
+        </Button>
       </div>
     );
   }

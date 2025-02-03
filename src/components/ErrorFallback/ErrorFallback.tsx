@@ -1,5 +1,9 @@
 import { Component } from 'react';
 
+import { Button } from '../Button';
+
+import './ErrorFallback.css';
+
 interface ErrorFallbackProps {
   error: Error;
   resetErrorBoundary: () => void;
@@ -10,14 +14,14 @@ export class ErrorFallback extends Component<ErrorFallbackProps> {
     const { error, resetErrorBoundary } = this.props;
 
     return (
-      <div role="alert" aria-live="assertive">
+      <div className="error-fallback" role="alert" aria-live="assertive">
         <p>Something went wrong:</p>
 
-        <pre>{error.message}</pre>
+        <pre className="message">{error.message}</pre>
 
-        <button type="button" onClick={resetErrorBoundary}>
+        <Button theme="blue" onClick={resetErrorBoundary}>
           Try again
-        </button>
+        </Button>
       </div>
     );
   }
