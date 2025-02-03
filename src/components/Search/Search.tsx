@@ -64,6 +64,24 @@ export class Search extends Component<Props, State> {
     }
   };
 
+  handleNetworkError = async () => {
+    const { setSearchResults, setLoading, setError } = this.props;
+
+    try {
+      const { results } = await handleFetch<Planet>(`${API_URL}/schema`);
+
+      setSearchResults(results || []);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
+      } else {
+        setError(new Error('An unknown error occurred!'));
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     this.setState({ query: e.target.value });
   };
@@ -81,6 +99,10 @@ export class Search extends Component<Props, State> {
 
         <Button onClick={() => this.handleSearch(this.state.query)}>
           Search
+        </Button>
+
+        <Button theme="blue" onClick={this.handleNetworkError}>
+          Network Error
         </Button>
       </div>
     );
