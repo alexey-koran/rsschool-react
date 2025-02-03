@@ -1,34 +1,16 @@
 .table-container {
   border: 0.1rem solid #444;
   border-radius: 0.8rem;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  max-height: 70rem;
 }
 
 table {
-  width: 100%;
+  min-width: fit-content;
   border-collapse: collapse;
-}
-
-th {
-  background-color: #3a3a3a;
-  color: #f5f5f5;
-  padding: 1.2rem 1.5rem;
-  text-align: left;
-  font-weight: bold;
-  border-bottom: 0.2rem solid #444;
-}
-
-td {
-  padding: 1.2rem 1.5rem;
-  border-bottom: 0.1rem solid #444;
-  color: #f5f5f5;
-  text-align: left;
-  font-size: 1.4rem;
-}
-
-tr:hover {
-  background-color: #333;
+  display: flex;
+  flex-direction: column;
 }
 
 thead {
@@ -43,6 +25,40 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
   background-color: #242424;
+}
+
+tr {
+  display: flex;
+  justify-content: start;
+}
+
+tr:hover {
+  background-color: #333;
+}
+
+th {
+  background-color: #3a3a3a;
+  color: #f5f5f5;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 0.2rem solid #444;
+  flex: 1;
+}
+
+td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 0.1rem solid #444;
+  color: #f5f5f5;
+  text-align: left;
+  font-size: 1.6rem;
+  flex: 1;
+}
+
+th,
+td {
+  min-width: 16rem;
 }
 
 .skeleton-cell {
