@@ -4,6 +4,7 @@ import type { Planet } from './types/Planet';
 
 import { Search } from './components/Search';
 import { Results } from './components/Results';
+import { BugglyButton } from './components/BugglyButton';
 
 import './App.css';
 
@@ -48,6 +49,8 @@ export class App extends Component<object, State> {
         />
 
         <Results results={results} loading={loading} error={error} />
+
+        <BugglyButton />
       </div>
     );
   }
