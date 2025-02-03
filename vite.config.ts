@@ -4,7 +4,10 @@ import react from '@vitejs/plugin-react-swc';
 
 export default {
   server: {
-    open: 'index.html',
+    open: true,
+  },
+  preview: {
+    open: true,
   },
   plugins: [react()],
 } satisfies UserConfig;
