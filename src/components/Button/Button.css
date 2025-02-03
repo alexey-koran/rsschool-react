@@ -1,0 +1,49 @@
+.button {
+  color: #ffffff;
+  padding: 1rem 4rem;
+  margin: 0 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button-green {
+  background-color: #4caf50;
+}
+
+.button-green:hover {
+  background-color: #45a049;
+}
+
+.button-green:active {
+  background-color: #388e3c;
+}
+
+.button-blue {
+  background-color: #2196f3;
+}
+
+.button-blue:hover {
+  background-color: #1976d2;
+}
+
+.button-blue:active {
+  background-color: #1565c0;
+}
+
+.button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
